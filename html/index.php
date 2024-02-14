@@ -1,38 +1,49 @@
 <?php
 
     $alert ='';
-    if(!empty($_POST) )
-    {
-        if(empty($_POST['usuario']) || empty($_POST['clave'])){
-             $alert= "ALGUNO VACIO";
-        }else{
-            require_once "../conexion.php";
-            $usuario= $_POST['usuario'];
-            $pass = $_POST['clave'];
-            $query = mysqli_query($conection, "SELECT t.nombre, cod_usu
-            FROM usuario AS u
-            INNER JOIN persona AS p ON u.cod_per = p.cod_persona
-            INNER JOIN tercero AS t ON p.cod_tercero = t.cod_tercero
-            WHERE u.cod_usu = (
-                SELECT cod_usu
-                FROM usuario
-                WHERE user='$usuario' AND clave ='$pass'
-            );");
-            $result = mysqli_num_rows($query);
-            
-            if($result > 0){
-                $data = mysqli_fetch_array($query);
-                //print_r($data);
-                session_start();
-                $_SESSION['active']= true;
-                $_SESSION['idUser']= $data['cod_usu'];
-                $_SESSION['nombre']= $data['nombre'];
+    session_start();
+    if(!empty($_SESSION['actove'])){
+        header('location: inicio.php');
+    }else{
+        if(!empty($_POST) )
+        {
+            if(empty($_POST['usuario']) || empty($_POST['clave'])){
+                $alert= "Ingrese su usuario y su contraseña";
+            }else{
+                require_once "../conexion.php";
+                $usuario= $_POST['usuario'];
+                $pass = $_POST['clave'];
+                $query = mysqli_query($conection, "SELECT nombre, cod_usu, rol, user
+                FROM usuario AS u
+                INNER JOIN persona AS p ON u.cod_per = p.cod_persona
+                INNER JOIN tercero AS t ON p.cod_tercero = t.cod_tercero
+                WHERE u.cod_usu = (
+                    SELECT cod_usu
+                    FROM usuario
+                    WHERE user='$usuario' AND clave ='$pass'
+                );");
+                $result = mysqli_num_rows($query);
+                
+                //si encuentra registro con las condiciones de la consulta 
+                if($result > 0){
+                    $data = mysqli_fetch_array($query);
+                    //variables de sesion
+                    $_SESSION['active']= true;
+                    $_SESSION['idUser']= $data['cod_usu'];
+                    $_SESSION['nombre']= $data['nombre'];
+                    $_SESSION['user']= $data['user'];
+                    $_SESSION['rol']= $data['rol']; 
 
+                    header('location:inicio.php');
+                }else{
+                    $alert= "El usuario o la contraseña son incorrectos";
+                    session_destroy();
 
-            }
-        }   
-        echo $alert;
+                }
+            }   
+            //echo $alert;
     }
+}
 
 ?>
 <!DOCTYPE html>
@@ -52,7 +63,7 @@
 
             <input type="text" name="usuario" placeholder="Usuario"  >
             <input type="password" name="clave" placeholder="Clave" >
-            <p class="alerta"></p>
+            <div class="alert"><?php echo isset($alert) ? $alert : '';?></div>
             <input type="submit" value="INGRESAR">
 
         </form>

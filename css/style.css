@@ -65,3 +65,10 @@ h3{
     font-size: 16px;
     text-align: center;
 }
+.imagen-contenido{
+    max-width: 100%;
+    height: 440px;
+    background: url(../img/OPTIMA_pagina_tipos_de_baterias.jpg);
+    background-position: center center;
+    background-size: cover;
+}
