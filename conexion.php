@@ -9,6 +9,6 @@
     if(!@$conection){
         echo('Error en la conexion');
     }else{
-        echo "conexion exitosa";
+       // echo "conexion exitosa";
     }
 ?>
