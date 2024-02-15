@@ -2,7 +2,7 @@
 
     $alert ='';
     session_start();
-    if(!empty($_SESSION['actove'])){
+    if(!empty($_SESSION['active'])){
         header('location: inicio.php');
     }else{
         if(!empty($_POST) )
@@ -11,8 +11,8 @@
                 $alert= "Ingrese su usuario y su contraseña";
             }else{
                 require_once "../conexion.php";
-                $usuario= $_POST['usuario'];
-                $pass = $_POST['clave'];
+                $usuario= mysqli_real_escape_string($conection, $_POST['usuario']);
+                $pass = md5(mysqli_real_escape_string($conection,$_POST['clave']));
                 $query = mysqli_query($conection, "SELECT nombre, cod_usu, rol, user
                 FROM usuario AS u
                 INNER JOIN persona AS p ON u.cod_per = p.cod_persona
