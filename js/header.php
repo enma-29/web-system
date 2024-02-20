@@ -24,12 +24,12 @@
     <div class="barra">
 		  <div id="header">
 			<ul class="nav">
-				<li><a href="inicio.php">Inicio</a></li>
+				<li><a href="inicio.php">INICIO</a></li>
 				<!-- <li><a href="activo_fijo.php">Medicamentos</a> -->
 				<li><a href="">USUARIOS</a>
 					<ul>
 						<!-- <li><a class="active" href="consultas.php">Consultas</a></li> -->
-						<li><a class="active" href="registropaciente.php">NUEVO USUARIO</a></li>
+						<li><a class="active" href="../html/usuario_registro.php">NUEVO USUARIO</a></li>
 						<li><a class="active" href="m_lentes.php">LISTA DE USUARIOS</a></li>
 						<!-- <li><a class="active" href="nuevo_record.php">Record</a></li> -->
 						<!-- <li><a class="active" href="usuario_registro.php">Usuarios</a></li>
@@ -88,6 +88,8 @@
 				</li>
 				<li><a class="active" href="">EXTRA</a>
  					<ul>
+						<li><a class="active" href="../html/mantenimientos/mtproducto.php">NUEVO T-PRODUCTO</a></li>
+					 	<li><a class="active" href="consultar_motivo.php">LISTA T-PRODUCTO</a></li>
 					 	<li><a class="active" href="consultar_motivo.php">NUEVA MARCA</a></li>
 					 	<li><a class="active" href="cmcopm.php">LISTA DE MARCAS</a></li>
 						<li><a class="active" href="cRol.php">NUEVO MODELO</a></li>

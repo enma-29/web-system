@@ -10,8 +10,10 @@
             if(empty($_POST['usuario']) || empty($_POST['clave'])){
                 $alert= "Ingrese su usuario y su contraseña";
             }else{
+                
                 require_once "../conexion.php";
                 $usuario= mysqli_real_escape_string($conection, $_POST['usuario']);
+                //encripta el campo con encryptacion md5 para hacer la consulta
                 $pass = md5(mysqli_real_escape_string($conection,$_POST['clave']));
                 $query = mysqli_query($conection, "SELECT nombre, cod_usu, rol, user
                 FROM usuario AS u
@@ -24,6 +26,7 @@
                 );");
                 $result = mysqli_num_rows($query);
                 
+    
                 //si encuentra registro con las condiciones de la consulta 
                 if($result > 0){
                     $data = mysqli_fetch_array($query);
@@ -52,8 +55,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login|Sistema Facturacion</title>
-    <link rel="stylesheet" href="../css/style.css">
-    
+    <?php include"../js/script.php";?>   
 </head>
 <body>
     <section id="container">
@@ -65,7 +67,7 @@
             <input type="password" name="clave" placeholder="Clave" >
             <div class="alert"><?php echo isset($alert) ? $alert : '';?></div>
             <input type="submit" value="INGRESAR">
-
+            
         </form>
     </section>
    
