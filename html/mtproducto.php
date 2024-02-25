@@ -1,15 +1,12 @@
 <?php
-
-
 include ('../conexion.php');
-
 $result = mysqli_query($conection, "select max(cod_Tproducto) AS id from tipo_producto");
-if($row = mysqli_fetch_row($result)){
-     if( mysqli_fetch_row($result) == 0){
-        $id = trim($row[0])+1;
+        if($row = mysqli_fetch_row($result)){
+            if( mysqli_fetch_row($result) == 0){
+                $id = trim($row[0])+1;
     }
 }
-    ?>
+?>
   
 <?php
 if(!empty($_POST)){
@@ -56,13 +53,13 @@ if(!empty($_POST)){
                 <hr>
                 <div class="alert"><?php echo isset($alert) ? $alert : ' ';?></div>
 
-                <form action="" method="POST">
+                <form action="" class="form_r" method="POST">
                         <label  for="cod">Codigo:</label>
                         <input type="number" name="cod" id="cod" placeholder="codigo "  readonly value=<?php echo $id ?>>
                         
                         <label for="descripcion">Descripcion:</label>
                         <input type="textarea" id="descripcion" name="descripcion"  >
-                        <input type="submit" value="Salvar" name="guardar" class="btn_save" id="guardar" onclick="">       
+                        <input type="submit" value="Salvar" name="guardar" class="btn_save" id="guardar" onclick="saludame();">       
                 </form>
             </div>
         </section>

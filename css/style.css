@@ -829,7 +829,7 @@ nav input:hover , a:hover{
 }
 /*lateral izquierdo*/
 .container{
-    margin: 60px auto;
+    margin: 50px auto;
     max-width: 640px;
     padding: 0 15px;
 }
@@ -926,7 +926,7 @@ fieldset #uno{
    
 }
  td{
-    /* width:5%; */
+    width:5%;
     text-align: center;
     vertical-align: middle;
    
@@ -1018,9 +1018,10 @@ table {
     width: 100%;
   }
   
-   td,  th {
+   td,  th, tr{
     border: 1px solid #ddd;
     padding: 8px;
+    width: 8%;
   }
   
    tr:nth-child(even){background-color: #f2f2f2;}
@@ -1054,7 +1055,7 @@ p{
 
 .alert{
         width:100%;
-        background-color: #3f537a;
+        background-color: #1a2949;
         border-radius: 6px;
         margin: 20px auto;
         color:black;
@@ -1062,7 +1063,7 @@ p{
 }
 .msg-error{
     text-align: center;
-    color:#e65656;
+    color:#e90d0d;
     font-weight: bold ;
 }
 .msg-save{
@@ -1071,6 +1072,7 @@ p{
 .alert p{
     text-align: center;
     padding:10px;
+    font-size: 20px;
 }
 .btn-new {
         margin: 5px;
@@ -1163,12 +1165,7 @@ p{
     color: black;
 }
 /* buscador */
-.form-search{
-    background-color: #708bc286;
-    margin: 10px 55px 10px 10px;
-    padding:25px 0 7px 0;
-    border-radius:10px;
-}
+
 .form-search .btn-buscar{
     margin: 5px;
     background-color:#5d7ab3;
@@ -1188,6 +1185,14 @@ color:#FFF;
 .form-search input[type= "text"]{
     background-color: #608eeb60;
    border: solid white;
+   resize: none;
+    padding: 1rem;
+    /* display: block; */
+    width: 74%;
+    background-color: #e1e1e1;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 1rem;
 }
 
 /* registro de usuario */
@@ -1206,7 +1211,7 @@ hr{
     display: block;
 }
 
-form{
+.form_r{
     background: #FFF;
     margin: auto;
     padding: 20px 50px;
@@ -1214,9 +1219,31 @@ form{
 }
 
 #containertp{
- padding: 90px 15px 15px;   
-}
+ padding: 90px 15px 15px;
 
+}
+.form-search{
+    background-color: #708bc286;
+    margin: 10px;
+    /* padding:25px 0 7px 0; */
+    border-radius:10px;
+}
+.form-search .btn-buscar{
+    margin: 5px;
+    background-color:#5d7ab3;
+    padding:6px 20px;
+    border-radius: 5px;
+    border:none;
+    text-decoration: none;
+    color: white;
+    margin: 20px;
+    cursor:pointer;
+    font-size: 15px;
+    font-family: 'Baloo Chettan 2', cursive;
+}
+.form-search label{
+color:#FFF;
+}
 .form_tpro{
     width: 450px;
     margin: auto;
@@ -1242,6 +1269,7 @@ form{
 .form_registert h1{
     color: #0b4d4d;
     text-align: center;
+    
 }
 .btn_save{
     font-size: 12pt;

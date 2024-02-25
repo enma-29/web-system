@@ -88,8 +88,8 @@
 				</li>
 				<li><a class="active" href="">EXTRA</a>
  					<ul>
-						<li><a class="active" href="../html/mantenimientos/mtproducto.php">NUEVO T-PRODUCTO</a></li>
-					 	<li><a class="active" href="consultar_motivo.php">LISTA T-PRODUCTO</a></li>
+						<li><a class="active" href="mtproducto.php">NUEVO T-PRODUCTO</a></li>
+					 	<li><a class="active" href="cTproducto.php">LISTA T-PRODUCTO</a></li>
 					 	<li><a class="active" href="consultar_motivo.php">NUEVA MARCA</a></li>
 					 	<li><a class="active" href="cmcopm.php">LISTA DE MARCAS</a></li>
 						<li><a class="active" href="cRol.php">NUEVO MODELO</a></li>
@@ -105,6 +105,8 @@
 				<li><a class="active" href="nuevo_record.php">FACTURAS</a>
 				<li><a href="#">NUEVA FACTURA</a></li>
 				<li><a class="active" href="../js/cerrar_sesion.php">SALIR</a></li>
+				<li><a class="active" href="#">VACIO</a></li>
+
             </ul>
           
 		</div>
