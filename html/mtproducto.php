@@ -28,7 +28,9 @@ if(!empty($_POST)){
             $query_ins = mysqli_query($conection, "INSERT INTO  tipo_producto (descripcion) values ('$descripcion')");
     
            if( $query_ins){
-            $alert = '<p class="msg-save">El tipo de producto se ha registro correctamente</p>'; 
+            $alert = '<p class="msg-save">El tipo de producto se ha registro correctamente</p>';
+            $id+=1;
+            unset($_POST);
            }else{
             $alert = '<p class="msg-error">Error al crear el tipo de producto</p>'; 
            }

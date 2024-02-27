@@ -1,6 +1,4 @@
 
-console.log("El archivo function.js se ha cargado correctamente.");
-
 	function saludame()
     {
          var nombre = document.getElementById("nombreInput").value; // Obtenemos el valor del input
@@ -58,3 +56,34 @@ console.log("El archivo function.js se ha cargado correctamente.");
           buscar();
       });
   });
+
+  //consulta t-producto 
+  $(document).ready(function(){
+    $('#nombreInput').focus();
+    function buscar() {
+        var nombre = $('#nombreTproducto').val();
+        var parametros = {
+            "nombre": nombre
+        };
+
+        $.ajax({
+            data: parametros,
+            url: 'codigo_tprod.php',
+            type: 'POST',
+            beforeSend: function () {
+                $('#mostrar_mensaje').html("");
+            },
+            success: function (mensaje) {
+                $('#mostrar_mensaje').html(mensaje);
+            }
+        });
+    }
+
+    // Llamar a buscar al cargar la página
+    buscar();
+
+    // Llamar a buscar cuando se presiona una tecla en #nombreTproducto
+    $('#nombreTproducto').keyup(function(){
+        buscar();
+    });
+});

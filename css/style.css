@@ -1225,7 +1225,7 @@ hr{
 .form-search{
     background-color: #708bc286;
     margin: 10px;
-    /* padding:25px 0 7px 0; */
+    padding:25px 0 7px 0;
     border-radius:10px;
 }
 .form-search .btn-buscar{
